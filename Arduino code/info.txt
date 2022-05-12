@@ -1,1 +1,33 @@
 Zet hier de arduino code
+
+//Pin 3: Input for reading the Button
+//Pin 2: Output for controlling the LED
+int ButtonValue = 0;
+
+int Button = 3;
+int LED = 32; 
+
+
+void setup() {
+
+  pinMode(Button, INPUT);
+  pinMode(LED, OUTPUT);
+
+Serial.begin(9600);
+}
+
+
+void loop () {
+
+  ButtonValue = digitalRead(Button);
+  Serial.println(ButtonValue);
+  if (ButtonValue == 1) {
+    //if button is pressed then turn the led on
+    digitalWrite(LED, HIGH);
+
+  }
+  else {
+    //else the button is not pressed, turn it of
+    digitalWrite(LED, LOW);
+  }
+}
